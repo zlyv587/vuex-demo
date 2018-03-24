@@ -1,0 +1,28 @@
+@import "../variable";
+/*一下是设计稿中统一的样式*/
+
+// 页面内容和左右两边的距离
+.offset-both-side {
+    padding: 0 .3rem;
+}
+
+#app {
+    font-size: 14px;
+}
+
+
+// 按钮样式
+.btn {
+    display: block;
+    padding: .24rem 1rem;
+    font-size: .36rem;
+    border: 0;
+    text-align: center;
+    border-radius: 2rem;
+    color: @textLight;
+}
+.btn-primary {
+    color: #fff;
+    background-color: @btnPrimaryStart;
+    background-image:linear-gradient(to bottom, @btnPrimaryStart, @btnPrimaryEnd);
+}
