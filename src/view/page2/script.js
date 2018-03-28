@@ -4,11 +4,11 @@
 import mixins from '../../mixin/mixins'
 import {mapState, mapActions, mapGetters} from 'vuex';
 import helloService from '../../api/hello';
-import alert from '../../components/alert'
+import unique from '../../components/unique'
 export default {
   isPage: true,
   name: 'hello',
-  components: {alert},
+  components: {unique},
   computed: {
     msf() {
       return this.msg + 'fewafewafewa';
@@ -17,41 +17,44 @@ export default {
       helloText: 'helloText',
     }),
     ...mapState({
+      page2: 'page2',
       hello: 'hello',
+      list({page2}) {
+        return page2.list;
+      },
       count({hello}) {
         return hello.count;
-      },
+      }
     })
   },
   methods: {
     ...mapActions([
       'changeCount',
-      'sayHello'
+      'sayHello',
+      'getList'
     ]),
-    closeProp() {
-      this.visibleProp = 'none';
-    },
-    goPage2() {
-      this.$router.push('/page2');
+    goHello() {
+      this.$router.push('/');
     }
   },
+  created() {
+    console.log(333333333333333333333);
+    // this.changeCount();
+    this.getList();
+  },
   mounted() {
-    this.changeCount();
-    // helloService.getHello().then()
-    this.visibleProp = 'block';
-
-    for (let i = 0; i < 1; i++) {
-      this.$alert({content:this.$createElement(
-        'span',// tag name 标签名称
-        'fewafeawf' // 子组件中的阵列
-      )})
-    }
   },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      visibleProp: 'none',
-      content: '',
+      content: {
+        text: '短袖',
+        children: {
+          text: '裙子',
+          children: {
+            text: '帽子'
+          }
+        }
+      }
     }
   }
 }

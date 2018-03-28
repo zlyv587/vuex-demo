@@ -19,6 +19,7 @@ export default function alert(option) {
   instance.close = function () {
     closeFun();
     instance.destroyElement();
+    instance = null;
   }
   if (isVNode(instance.content)) {
     instance.$slots.default = [instance.content];

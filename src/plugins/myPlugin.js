@@ -3,6 +3,7 @@
  */
 import destroyedMixin from '../mixin/mixins';
 import alert from '../components/alert/alert.js';
+// import unique from '../components/unique';
 let myPlugin = {};
 myPlugin.install = function (Vue, options) {
   // 1. 添加全局方法或属性
@@ -17,6 +18,8 @@ myPlugin.install = function (Vue, options) {
       // 一些逻辑……
     }
   })
+
+  // Vue.component('unique', unique);
 
   // 3. 注入一些组件选项
   Vue.mixin({...destroyedMixin});
